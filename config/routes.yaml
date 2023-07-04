@@ -1,0 +1,5 @@
+app_main_page:
+    path: /main/{categoryName}
+    defaults:
+        _controller: 'App\Controller\MainPageController::index'
+        categoryName: 'all'

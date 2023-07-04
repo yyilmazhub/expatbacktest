@@ -6,6 +6,12 @@ use Symfony\Component\Form\FormInterface;
 
 class FormErrorService
 {
+    /**
+     * Récupère les messages d'erreur du formulaire.
+     *
+     * @param FormInterface $form Le formulaire
+     * @return array Les messages d'erreur
+     */
     public function getErrorMessages(FormInterface $form): array
     {
         $errors = [];

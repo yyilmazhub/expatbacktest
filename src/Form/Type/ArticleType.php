@@ -20,7 +20,6 @@ class ArticleType extends AbstractType
             ->add('title', TextType::class, [
                 'label' => 'Titre',
                 'required' => false,
-                'data' => null
             ])
             ->add('content', TextareaType::class, [
                 'attr' => [
@@ -39,7 +38,7 @@ class ArticleType extends AbstractType
                 'attr' => [
                     'class' => 'btn btn-primary',
                 ],
-                'label' => 'Enregistrer',
+                'label' => 'Ajouter',
             ]);
     }
 

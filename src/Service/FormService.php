@@ -26,6 +26,12 @@ class FormService
         $this->jsonResponseService = $jsonResponseService;
     }
 
+    /**
+     * Traite les données du formulaire de l'article.
+     *
+     * @param FormInterface $articleForm Le formulaire de l'article
+     * @return mixed Le résultat de la gestion des données du formulaire
+     */
     public function handleArticleFormData(FormInterface $articleForm)
     {
         if ($articleForm->isSubmitted() && $articleForm->isValid()) {
@@ -35,6 +41,12 @@ class FormService
         }
     }
 
+    /**
+     * Gère les données valides du formulaire de l'article.
+     *
+     * @param FormInterface $articleForm Le formulaire de l'article
+     * @return mixed Le résultat de la gestion des données valides du formulaire
+     */
     private function handleValidForm(FormInterface $articleForm)
     {
         $article = $articleForm->getData();
@@ -44,6 +56,7 @@ class FormService
 
         $this->em->persist($article);
         $this->em->flush();
+
         $redirectRoute = $this->urlGenerator->generate('app_main_page');
 
         return $this->jsonResponseService->createSuccessResponse(
@@ -52,6 +65,12 @@ class FormService
         );
     }
 
+    /**
+     * Gère les données invalides du formulaire de l'article.
+     *
+     * @param FormInterface $articleForm Le formulaire de l'article
+     * @return mixed Le résultat de la gestion des données invalides du formulaire
+     */
     private function handleInvalidForm(FormInterface $articleForm)
     {
         $errors = $this->formErrorService->getErrorMessages($articleForm);
